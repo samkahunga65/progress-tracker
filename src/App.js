@@ -8,20 +8,24 @@ import Graphs from './Graphs';
 import Nav from './Nav';
 import Notifications from './Notifications';
 import AddNew from './components/AddNew'
+import PrivateRoute from "./components/PrivateRoute";
+import Store from "./store";
 function App() {
   return (
     
     <div className="App">
+      <Store>
       <Router>
       <Nav/>
       <Switch>
-        <Route path="/" exact component={Dash}/>
+        <PrivateRoute path="/" exact component={Dash}/>
         <Route path="/auth" exact component={Authentication}/>
         <Route path="/graphs" exact component={Graphs}/>
         <Route path="/notification" exact component={Notifications}/>
         <Route path="/addnew" exact component={AddNew}/>
       </Switch>
       </Router>
+      </Store>
     </div>
     
   );

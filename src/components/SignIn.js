@@ -3,6 +3,8 @@ import { useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import swal from 'sweetalert'
 import {auth} from './config/firebaseConfig'
+import firebase from 'firebase/app'
+import { setuid } from './firestore/getData'
 // import swal from 'sweetalert';
 
 function SignIn() {
@@ -32,6 +34,12 @@ function SignIn() {
                 reset()
                 setUser(user)
                 swal('you are logged in')
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        setuid(auth.currentUser.uid)
+                    }
+                  });
+                
                 history.push('/')
             }
         })

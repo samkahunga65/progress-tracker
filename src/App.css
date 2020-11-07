@@ -62,6 +62,10 @@ body {
 .top {
   grid-area: 1 / 1 / 2 / 6;
 }
+.top p {
+  margin: 0;
+  font-size: small;
+}
 .icons {
   grid-area: 2 / 1 / 6 / 2;
   display: flex;
@@ -75,11 +79,20 @@ body {
 }
 .meat {
   grid-area: 2 / 2 / 6 / 6;
+  text-overflow: ellipsis;
+}
+.meat li {
+  list-style-type: none;
+  text-overflow: clip;
+}
+.meat ul {
+  text-overflow: clip;
 }
 .box {
   box-sizing: border-box;
   width: 300px;
   padding: 40px;
+  text-overflow: ellipsis;
   position: absolute;
   top: 50%;
   left: 50%;
